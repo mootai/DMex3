@@ -8,17 +8,26 @@ int main() {
     printf("What is your name?\n");
     scanf(" %s", &name);
     printf("Hello, %s!\n", name);
+    
+int headsCount = 0;
+int tailsCount = 0;
 
-    srand(time(0));
-
-    int dice1 = (rand() % 6) + 1;
-    int dice2 = (rand() % 6) + 1;
-    int sum = dice1 + dice2;
-
-    printf("Rolling dice...\n");
-    printf("Die 1: %d\n", dice1);
-    printf("Die 2: %d\n", dice2);
-    printf("Total value: %d\n", sum);
-
+printf("Tossing a coin...\n");
+for (int i = 0; i < 3; i++) {
+        int result = rand() % 2; 
+        if (result == 0) {
+            printf("Round %d: Heads\n", i + 1);
+            headsCount++;
+        } else {
+            printf("Round %d: Tails\n", i + 1);
+            tailsCount++;
+        }
+    }
+    printf("Heads: %d, Tails: %d \n",headsCount, tailsCount);
+    if(headsCount > tailsCount){
+        printf("%s won!\n", name);
+    } else {
+        printf("%s lost!\n", name);
+    }
     return 0;
 }
